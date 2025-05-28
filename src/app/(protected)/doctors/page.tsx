@@ -16,6 +16,7 @@ import { doctorsTable } from "@/db/schema";
 import { auth } from "@/lib/auth";
 
 import AddDoctorButton from "./_components/add-doctor-button";
+import DoctorCard from "./_components/doctor-card";
 
 const DoctorsPage = async () => {
   const session = await auth.api.getSession({
@@ -43,9 +44,9 @@ const DoctorsPage = async () => {
       </PageHeader>
       <PageContent>
         <div className="grid grid-cols-3 gap-6">
-          <div className="col-span-3">
-            <h2 className="text-lg font-medium">Médicos</h2>
-          </div>
+          {doctors.map((doctor) => (
+            <DoctorCard key={doctor.id} doctor={doctor} />
+          ))}
         </div>
       </PageContent>
     </PageContainer>
