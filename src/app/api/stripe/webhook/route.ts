@@ -29,7 +29,7 @@ export const POST = async (request: Request) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const subscription_details = (invoicePaymentSucceeded as any).parent
         .subscription_details;
-      const customer = invoicePaymentSucceeded.customer;
+      const customer = String(invoicePaymentSucceeded.customer);
       const subscription = subscription_details!.subscription;
 
       if (!subscription) {
