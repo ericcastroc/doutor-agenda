@@ -1,4 +1,5 @@
 import { eq } from "drizzle-orm";
+import { Metadata } from "next";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -18,6 +19,11 @@ import { auth } from "@/lib/auth";
 
 import AddAppointmentButton from "./_components/add-appointment-button";
 import { appointmentsTableColumns } from "./_components/table-columns";
+
+export const metadata: Metadata = {
+  title: "Agendamentos",
+  description: "Gerencie os agendamentos da sua clínica",
+};
 
 const AppointmentsPage = async () => {
   const session = await auth.api.getSession({

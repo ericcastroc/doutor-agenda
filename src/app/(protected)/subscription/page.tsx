@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -12,6 +13,11 @@ import {
 import { auth } from "@/lib/auth";
 
 import { SubscriptionPlan } from "./_components/subscription-plan";
+
+export const metadata: Metadata = {
+  title: "Assinatura",
+  description: "Gerencie a sua assinatura.",
+};
 
 const SubscriptionPage = async () => {
   const session = await auth.api.getSession({

@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
 import { Calendar } from "lucide-react";
+import { Metadata } from "next";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -30,6 +31,11 @@ interface DashboardPageProps {
     to: string;
   }>;
 }
+
+export const metadata: Metadata = {
+  title: "Dashboard",
+  description: "Visão geral da sua clínica",
+};
 
 const DashboardPage = async ({ searchParams }: DashboardPageProps) => {
   const session = await auth.api.getSession({

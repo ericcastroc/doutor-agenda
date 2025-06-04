@@ -1,9 +1,15 @@
+import { Metadata } from "next";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
 import { auth } from "@/lib/auth";
 
 import { SubscriptionPlan } from "../(protected)/subscription/_components/subscription-plan";
+
+export const metadata: Metadata = {
+  title: "DR.Agenda",
+  description: "Agendamento de consultas médicas",
+};
 
 export default async function Home() {
   const session = await auth.api.getSession({

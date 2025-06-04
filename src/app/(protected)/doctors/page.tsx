@@ -1,4 +1,5 @@
 import { eq } from "drizzle-orm";
+import { Metadata } from "next";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -17,6 +18,11 @@ import { auth } from "@/lib/auth";
 
 import AddDoctorButton from "./_components/add-doctor-button";
 import DoctorCard from "./_components/doctor-card";
+
+export const metadata: Metadata = {
+  title: "Médicos",
+  description: "Gerencie os médicos da sua clínica",
+};
 
 const DoctorsPage = async () => {
   const session = await auth.api.getSession({

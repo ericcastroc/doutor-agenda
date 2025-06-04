@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -6,6 +7,11 @@ import { auth } from "@/lib/auth";
 
 import LoginForm from "./components/login-form";
 import SignUpForm from "./components/sign-up-form";
+
+export const metadata: Metadata = {
+  title: "DR.Agenda",
+  description: "Agendamento de consultas médicas",
+};
 
 const AuthenticationPage = async () => {
   const session = await auth.api.getSession({
