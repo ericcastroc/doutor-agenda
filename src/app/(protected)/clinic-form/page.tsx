@@ -5,24 +5,27 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import WithAuthentication from "@/hocs/with-authentication";
 
 import ClinicForm from "./_components/form";
 
-const ClinicFormPage = () => {
+const ClinicFormPage = async () => {
   return (
-    <div>
-      <Dialog open>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>Adicionar clínica</DialogTitle>
-            <DialogDescription>
-              Adicione uma clínica para continuar.
-            </DialogDescription>
-          </DialogHeader>
-          <ClinicForm />
-        </DialogContent>
-      </Dialog>
-    </div>
+    <WithAuthentication mustHavePlan>
+      <div>
+        <Dialog open>
+          <DialogContent className="sm:max-w-[425px]">
+            <DialogHeader>
+              <DialogTitle>Adicionar clínica</DialogTitle>
+              <DialogDescription>
+                Adicione uma clínica para continuar.
+              </DialogDescription>
+            </DialogHeader>
+            <ClinicForm />
+          </DialogContent>
+        </Dialog>
+      </div>
+    </WithAuthentication>
   );
 };
 
